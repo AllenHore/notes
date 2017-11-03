@@ -17,7 +17,8 @@
 	req.setCharacterEncoding("utf-8");			
 	String methodName = req.getParameter("method");
 	try {
-	Method method = this.getClass().getMethod(methodName, HttpServletRequest.class,HttpServletResponse.class);
+	Method method = this.getClass().getMethod(methodName, 
+    HttpServletRequest.class,HttpServletResponse.class);
 	   method.invoke(this, req, resp);
 			} catch (Exception e) {
 				//e.printStackTrace();
@@ -33,6 +34,7 @@
 			doGet(req, resp);
 		}
 	```
+## 二、
 			
 
 
