@@ -13,18 +13,17 @@
 	public abstract class BaseServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-				IOException {
-			req.setCharacterEncoding("utf-8");
-			
-			String methodName = req.getParameter("method");
-			try {
-				Method method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
-				method.invoke(this, req, resp);
+	IOException {
+	req.setCharacterEncoding("utf-8");			
+	String methodName = req.getParameter("method");
+	try {
+	Method method = this.getClass().getMethod(methodName, HttpServletRequest.class,HttpServletResponse.class);
+	   method.invoke(this, req, resp);
 			} catch (Exception e) {
 				//e.printStackTrace();
 				Throwable cause = e.getCause();
 				if(cause instanceof DBException) {
-					throw new DBException(cause);
+				throw new DBException(cause);
 				}
 			}
 		}
@@ -33,7 +32,6 @@
 				IOException {
 			doGet(req, resp);
 		}
-	
 	```
 			
 
