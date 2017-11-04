@@ -12,7 +12,8 @@
 	```java
 	public abstract class BaseServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    throws ServletException,
 	IOException {
 	req.setCharacterEncoding("utf-8");			
 	String methodName = req.getParameter("method");
@@ -29,7 +30,8 @@
 			}
 		}
 		@Override
-		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+           throws ServletException,
 				IOException {
 			doGet(req, resp);
 		}
